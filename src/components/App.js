@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import background from "../img/background.jpg";
-import { Button, Input, InputGroupAddon, InputGroup, Row, Col } from "reactstrap";
+import { Button, Input, InputGroupAddon, InputGroup } from "reactstrap";
 import "../App.css";
 
 class App extends Component {
@@ -14,7 +14,6 @@ class App extends Component {
                 <Button color="success">Search</Button>
               </InputGroupAddon>
             </InputGroup>
-
       </div>
     );
   }
