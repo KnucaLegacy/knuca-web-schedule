@@ -1,19 +1,13 @@
-img.bg {
-  /* Set rules to fill background */
-  min-height: 100%;
-  min-width: 1024px;
-
-  /* Set up proportionate scaling */
-  width: 100%;
-  height: auto;
-
-  /* Set up positioning */
-  position: fixed;
+html::after, body::after {
+  content:"";
+  background: url('./img/background.jpg');
+  opacity: 0.3;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
   z-index: -1;
-
-  opacity: 0.7;
 }
 
 .main-input {
@@ -21,4 +15,8 @@ img.bg {
   top: 35%;
   left:50%;
   transform: translate(-50%,-50%);
+}
+
+.main-input input {
+  box-shadow: 0 5px 11px 0 rgba(0,0,0,.3), 0 4px 15px 0 rgba(0,0,0,.3);
 }
