@@ -4,5 +4,6 @@ import App from './components/App';
 import { shallow } from 'enzyme';
 
 it('renders without crashing', () => {
-  shallow(<App/>);
+  
+  shallow(<App fetch={jest.fn()}/>);
 });
