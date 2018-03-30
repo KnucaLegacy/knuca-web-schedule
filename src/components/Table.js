@@ -2,7 +2,6 @@ import React from 'react';
 import { Table } from 'reactstrap';
 
 const LessonTable = props => {
-    // const { lessons } = this.props;
     
     return (
         <Table bordered responsive>
