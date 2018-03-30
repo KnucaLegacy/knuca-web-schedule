@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import LessonTable from './Table';
 import { Container, Button, Input, InputGroupAddon, InputGroup } from "reactstrap";
-import "../App.css";
+import "../css/App.css";
 
 class App extends Component {
 
