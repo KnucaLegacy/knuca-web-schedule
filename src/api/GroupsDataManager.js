@@ -1,8 +1,10 @@
-import { serverApiUrl, port } from '../config';
+import config from '../config/config';
 import axios from 'axios';
 
 export async function fetchGroups() {
-    let url = `${serverApiUrl}:${port}/groups`;
-    let groups = await axios.get(url);
+    let { serverApiUrl, port, proxy } = config;
+    let url = `${proxy}/${serverApiUrl}:${port}/groups`;
+    let response = await axios(url);
+    let groups = response.data;
     return groups;
 };

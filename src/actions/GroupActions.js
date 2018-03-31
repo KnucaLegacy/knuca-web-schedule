@@ -7,25 +7,27 @@ const groupsFetchSuccess = (groups) => ({
     groups,
 });
 
-const groupsIsLoading = () => ({
+const groupsIsLoading = (bool) => ({
     type: types.FETCH_GROUPS_REQUEST,
-    isLoading: true
+    isLoading: bool,
 });
 
 const groupsIsErrored = () => ({
-    type: types.FETCH_GROUPS_REQUEST,
-    isErrored: true
+    type: types.FETCH_GROUPS_ERROR,
+    isErrored: true,
 });
 
 export async function groupsFetchData() {
     try {
-        AppDispatcher.dispatch(groupsIsLoading());
+        AppDispatcher.dispatch(groupsIsLoading(true));
 
         let groups = await fetchGroups();
 
+        AppDispatcher.dispatch(groupsIsLoading(false));
         AppDispatcher.dispatch(groupsFetchSuccess(groups));
 
     } catch (error) {
+        AppDispatcher.dispatch(groupsIsLoading(false));
         AppDispatcher.dispatch(groupsIsErrored());
     }
 }

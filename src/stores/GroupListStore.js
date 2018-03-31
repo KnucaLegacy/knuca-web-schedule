@@ -4,7 +4,7 @@ import { ActionTypes as types } from '../actions/Action-types';
 
 
 const initialState = {
-    groups:{},
+    groups:[],
     isLoading: false,
     isErrored: false,
 };
@@ -19,7 +19,7 @@ class GroupListStore extends ReduceStore {
     }
 
     getGroupsNames() {
-        return this.getState().map(el => el.name);
+        return this.getState().groups.map(group => group.name);
     }
 
     reduce(state, action) {
@@ -27,7 +27,7 @@ class GroupListStore extends ReduceStore {
             case types.FETCH_GROUPS_REQUEST:
                 return {
                     ...state,
-                    isLoading: true
+                    isLoading: action.isLoading
                 };
             case types.FETCH_GROUPS_SUCCESS:
                 return {
@@ -37,7 +37,7 @@ class GroupListStore extends ReduceStore {
             case types.FETCH_GROUPS_ERROR:
                 return {
                     ...state,
-                    isErrored: true
+                    isErrored: action.isErrored
                 };
             default: return state;
         }

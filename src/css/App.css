@@ -55,3 +55,20 @@ html::after, body::after {
 .table td:empty {
   background-color: grey;
 }
+
+.search-result-list {
+  position: absolute;
+  top: 10720px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  
+  max-width: 75%;
+}
+
+.loading-state {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}

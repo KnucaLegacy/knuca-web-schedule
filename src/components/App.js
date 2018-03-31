@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import LessonTable from './Table';
+// import LessonTable from './Table';
+import GroupListContainer from '../containers/GroupListContainer';
 import { Container, Button, Input, InputGroupAddon, InputGroup } from "reactstrap";
 import "../css/App.css";
 
@@ -17,10 +18,13 @@ class App extends Component {
             <InputGroup className="main-input col-8 ">
               <Input placeholder="Введите группу\преподаватель" />
               <InputGroupAddon addonType="prepend">
-                <Button color="success">Search</Button>
+                <Button color="success">
+                  <span class="oi oi-magnifying-glass"></span>
+                </Button>
               </InputGroupAddon>
             </InputGroup>
-            <LessonTable />
+            {/* <LessonTable /> */}
+            <GroupListContainer />
       </Container>
     );
   }
