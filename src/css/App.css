@@ -10,13 +10,6 @@ html::after, body::after {
   z-index: -1;
 }
 
-.main-input {
-  position: absolute;
-  top: 35%;
-  left:50%;
-  transform: translate(-50%,-50%);
-}
-
 .main-input input {
   box-shadow: 0 5px 11px 0 rgba(0,0,0,.3), 0 4px 15px 0 rgba(0,0,0,.3);
 }
@@ -56,19 +49,11 @@ html::after, body::after {
   background-color: grey;
 }
 
-.search-result-list {
-  position: absolute;
-  top: 10720px;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  
-  max-width: 75%;
-}
 
-.loading-state {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  text-align: center;
+/* Search result list */
+
+.search-result-list {
+  margin-top: 15px;
+  max-height: 350px;
+  overflow-y: scroll;
 }
