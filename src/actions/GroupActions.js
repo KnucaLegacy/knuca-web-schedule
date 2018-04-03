@@ -17,6 +17,11 @@ const groupsIsErrored = () => ({
     isErrored: true,
 });
 
+export const searchGroups = (query) => AppDispatcher.dispatch({
+    type: types.FILTER_GROUPS,
+    searchQuery: query,
+});
+
 export async function groupsFetchData() {
     try {
         AppDispatcher.dispatch(groupsIsLoading(true));

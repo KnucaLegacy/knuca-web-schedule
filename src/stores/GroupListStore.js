@@ -7,6 +7,7 @@ const initialState = {
     groups:[],
     isLoading: false,
     isErrored: false,
+    searchQuery: '',
 };
 
 class GroupListStore extends ReduceStore {
@@ -39,6 +40,11 @@ class GroupListStore extends ReduceStore {
                     ...state,
                     isErrored: action.isErrored
                 };
+            case types.FILTER_GROUPS:
+                return {
+                    ...state,
+                    searchQuery: action.searchQuery.toLowerCase(),
+                }
             default: return state;
         }
     }
