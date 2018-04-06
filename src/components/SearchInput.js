@@ -5,7 +5,7 @@ import { Button, Input, InputGroupAddon, InputGroup } from "reactstrap";
 export default class SearchInput extends Component {
     render() {
         return (
-            <InputGroup className="main-input">
+            <InputGroup className="main-input" size="lg">
                 <Input onChange={this.props.onInputChange} placeholder="Введите группу\преподавателя" />
                 <InputGroupAddon addonType="prepend">
                     <Button color="success">
