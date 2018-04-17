@@ -9,12 +9,15 @@ import '../css/App.css';
 import '../css/Grid.css';
 
 const App = () => (
-  <Container className="main-container">
+  <Container>
     <Row>
       <Col>
         <SearchInput onInputChange={this.props.onInputChange} />
         {/* <LessonTable /> */}
-        <GroupList {...this.props} />
+        <GroupList
+            groupsState={this.props.groupsState}
+            fetchGroups={this.props.fetchGroups}
+        />
       </Col>
     </Row>
   </Container>

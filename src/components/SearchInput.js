@@ -3,7 +3,7 @@ import { Button, Input, InputGroupAddon, InputGroup } from 'reactstrap';
 
 
 const SearchInput = () => (
-  <InputGroup className="main-input">
+  <InputGroup className="main-input" size="lg">
     <Input
         onChange={this.props.onInputChange}
         placeholder="Введите группу\преподавателя"
