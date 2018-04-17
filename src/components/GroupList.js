@@ -1,10 +1,21 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { ListGroup } from 'reactstrap';
 import GroupListItem from './GroupListItem';
 import ErrorListItem from './ErrorListItem';
 import Spinner from './Spinner';
 
 export default class GroupList extends PureComponent {
+  static propTypes = {
+    groupsState: PropTypes.shape({
+      groups: PropTypes.array,
+      isLoading: PropTypes.bool,
+      isErrored: PropTypes.bool,
+      searchQuery: PropTypes.string,
+    }),
+    fetchGroups: PropTypes.func,
+  }
+
   componentDidMount() {
     if (this.props.groupsState.groups.length === 0) {
       this.props.fetchGroups();
