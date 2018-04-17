@@ -1,10 +1,10 @@
-import config from '../config/config';
 import axios from 'axios';
+import config from '../config/config';
 
-export async function fetchGroups() {
-    let { serverApiUrl, port, proxy } = config;
-    let url = `${proxy}/${serverApiUrl}:${port}/groups`;
-    let response = await axios(url);
-    let groups = response.data;
-    return groups;
-};
+export default async function fetchGroups() {
+  const { serverApiUrl, port, proxy } = config;
+  const url = `${proxy}/${serverApiUrl}:${port}/groups`;
+  const response = await axios(url);
+  const groups = response.data;
+  return groups;
+}

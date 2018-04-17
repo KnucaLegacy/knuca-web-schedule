@@ -1,9 +1,7 @@
-import React from "react";
+import React from 'react';
 
-const ErrorListItem = () => {
-  return (
-    <li>There was an error fetching data!</li>
-  );
-};
+const ErrorListItem = () => (
+  <li>There was an error fetching data!</li>
+);
 
 export default ErrorListItem;
