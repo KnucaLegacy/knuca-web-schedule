@@ -4,13 +4,18 @@ import { ActionTypes as types } from '../actions/Action-types';
 
 
 const initialState = {
-  groups: [],
+  searchItems: {
+    groups: [],
+    teachers: [],
+    rooms: [],
+    items: [],
+  },
   isLoading: false,
   isErrored: false,
   searchQuery: '',
 };
 
-class GroupListStore extends ReduceStore {
+class SearchListStore extends ReduceStore {
   constructor() {
     super(AppDispatcher);
   }
@@ -19,28 +24,25 @@ class GroupListStore extends ReduceStore {
     return initialState;
   }
 
-  getGroupsNames() {
-    return this.getState().groups.map(group => group.name);
-  }
-
   reduce(state, action) {
     switch (action.type) {
-      case types.FETCH_GROUPS_REQUEST:
+      case types.FETCH_SEARCH_ITEMS_REQUEST:
         return {
           ...state,
           isLoading: action.isLoading,
         };
-      case types.FETCH_GROUPS_SUCCESS:
+      case types.FETCH_SEARCH_ITEMS_SUCCESS:
         return {
           ...state,
-          groups: action.groups,
+          searchItems: action.searchItems,
         };
-      case types.FETCH_GROUPS_ERROR:
+      case types.FETCH_SEARCH_ITEMS_ERROR:
         return {
           ...state,
           isErrored: action.isErrored,
+          error: action.error,
         };
-      case types.FILTER_GROUPS:
+      case types.FILTER_SEARCH_ITEMS:
         return {
           ...state,
           searchQuery: action.searchQuery.toLowerCase(),
@@ -50,4 +52,4 @@ class GroupListStore extends ReduceStore {
   }
 }
 
-export default new GroupListStore();
+export default new SearchListStore();

@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 // import LessonTable from './Table';
-import GroupList from './GroupList';
+import SearchList from './SearchList';
 import SearchInput from './SearchInput';
 
 import '../css/App.css';
@@ -15,9 +15,9 @@ const App = props => (
       <Col>
         <SearchInput onInputChange={props.onInputChange} />
         {/* <LessonTable /> */}
-        <GroupList
-            groupsState={props.groupsState}
-            fetchGroups={props.fetchGroups}
+        <SearchList
+            searchItemsState={props.searchItemsState}
+            fetchSearchItems={props.fetchSearchItems}
         />
       </Col>
     </Row>
@@ -25,8 +25,8 @@ const App = props => (
 );
 
 App.propTypes = {
-  groupsState: PropTypes.shape({}),
-  fetchGroups: PropTypes.func,
+  searchItemsState: PropTypes.shape({}),
+  fetchSearchItems: PropTypes.func,
   onInputChange: PropTypes.func,
 };
 

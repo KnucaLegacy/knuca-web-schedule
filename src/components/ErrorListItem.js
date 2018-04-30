@@ -1,7 +1,8 @@
 import React from 'react';
+import { ListGroupItem } from 'reactstrap';
 
 const ErrorListItem = () => (
-  <li>There was an error fetching data!</li>
+  <ListGroupItem color="danger" >There was an error fetching data!</ListGroupItem>
 );
 
 export default ErrorListItem;

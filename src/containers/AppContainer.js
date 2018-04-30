@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import { Container } from 'flux/utils';
 import App from '../components/App';
-import GroupListStore from '../stores/GroupListStore';
-import { groupsFetchData, searchGroups } from '../actions/GroupActions';
+import SearchListStore from '../stores/SearchListStore';
+import { fetchSearchItems, searchItems } from '../actions/GroupActions';
 
 
 function onInputChange(event) {
-  searchGroups(event.target.value);
+  searchItems(event.target.value);
 }
 
 class AppContainer extends Component {
   static getStores() {
-    return [GroupListStore];
+    return [SearchListStore];
   }
 
   static calculateState() {
-    const groupsState = GroupListStore.getState();
+    const searchItemsState = SearchListStore.getState();
 
     return {
-      groupsState,
-      fetchGroups: groupsFetchData,
+      searchItemsState,
+      fetchSearchItems,
 
       onInputChange,
     };

@@ -1,37 +1,39 @@
 import { ActionTypes as types } from './Action-types';
-import { fetchGroups } from '../api/GroupsDataManager';
+import { getItems } from '../api/SearchItemsDataManager';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 
-const groupsFetchSuccess = groups => ({
-  type: types.FETCH_GROUPS_SUCCESS,
-  groups,
+
+const searchItemsFetchSuccess = searchItems => ({
+  type: types.FETCH_SEARCH_ITEMS_SUCCESS,
+  searchItems,
 });
 
-const groupsIsLoading = bool => ({
-  type: types.FETCH_GROUPS_REQUEST,
+const searchItemsIsLoading = bool => ({
+  type: types.FETCH_SEARCH_ITEMS_REQUEST,
   isLoading: bool,
 });
 
-const groupsIsErrored = () => ({
-  type: types.FETCH_GROUPS_ERROR,
+const searchItemsIsErrored = error => ({
+  type: types.FETCH_SEARCH_ITEMS_ERROR,
   isErrored: true,
+  error,
 });
 
-export const searchGroups = query => AppDispatcher.dispatch({
-  type: types.FILTER_GROUPS,
+export const searchItems = query => AppDispatcher.dispatch({
+  type: types.FILTER_SEARCH_ITEMS,
   searchQuery: query,
 });
 
-export async function groupsFetchData() {
+export async function fetchSearchItems() {
   try {
-    AppDispatcher.dispatch(groupsIsLoading(true));
+    AppDispatcher.dispatch(searchItemsIsLoading(true));
 
-    const groups = await fetchGroups();
+    const items = await getItems();
 
-    AppDispatcher.dispatch(groupsIsLoading(false));
-    AppDispatcher.dispatch(groupsFetchSuccess(groups));
+    AppDispatcher.dispatch(searchItemsIsLoading(false));
+    AppDispatcher.dispatch(searchItemsFetchSuccess(items));
   } catch (error) {
-    AppDispatcher.dispatch(groupsIsLoading(false));
-    AppDispatcher.dispatch(groupsIsErrored());
+    AppDispatcher.dispatch(searchItemsIsLoading(false));
+    AppDispatcher.dispatch(searchItemsIsErrored(error));
   }
 }
