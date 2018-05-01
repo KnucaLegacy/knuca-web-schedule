@@ -1,12 +1,5 @@
-html::after, body::after {
-  content:"";
+body {
   background: url('../img/Pattern.png') repeat;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
 }
 
 .main-input input {
@@ -22,32 +15,6 @@ html::after, body::after {
   transform: translate(-50%,-50%);
   max-width: 75%;
 }
-
-.table {
-  border: 0.5px solid #000000;
-}
-.table-bordered > thead > tr > th,
-.table-bordered > tbody > tr > th,
-.table-bordered > tfoot > tr > th,
-.table-bordered > thead > tr > td,
-.table-bordered > tbody > tr > td,
-.table-bordered > tfoot > tr > td {
-   border: 0.5px solid #000000;
-}
-
-.table thead th {
-  text-align: center;
-}
-
-.table th.lessonDay {
-  text-align: center;
-  vertical-align: middle;
-}
-
-.table td:empty {
-  background-color: grey;
-}
-
 
 /* Search result list */
 
