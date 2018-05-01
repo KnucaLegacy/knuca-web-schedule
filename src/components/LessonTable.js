@@ -32,11 +32,6 @@ const LessonTable = () => {
               Header: 'Вівторок - 01/05/2018',
               columns: [
                 {
-                  Header: 'День',
-                  accessor: 'day',
-                  minWidth: 110,
-                },
-                {
                   Header: 'Час',
                   accessor: 'time',
                   maxWidth: 50,
