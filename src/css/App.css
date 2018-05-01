@@ -1,7 +1,6 @@
 html::after, body::after {
   content:"";
-  background: url('../img/background.jpg');
-  opacity: 0.1;
+  background: url('../img/Pattern.png') repeat;
   top: 0;
   left: 0;
   bottom: 0;

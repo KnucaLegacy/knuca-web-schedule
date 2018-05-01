@@ -6,11 +6,12 @@ import { Button, Input, InputGroupAddon, InputGroup } from 'reactstrap';
 const SearchInput = props => (
   <InputGroup className="main-input" size="lg">
     <Input
+        active
         onChange={props.onInputChange}
-        placeholder="Введите группу\преподавателя"
+        placeholder="Почніть пошук..."
     />
     <InputGroupAddon addonType="prepend">
-      <Button color="success">
+      <Button color="primary">
         <span className="oi oi-magnifying-glass" />
       </Button>
     </InputGroupAddon>
