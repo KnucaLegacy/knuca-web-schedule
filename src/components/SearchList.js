@@ -19,21 +19,26 @@ export default class SearchList extends PureComponent {
   }
 
   componentDidMount() {
-    if (this.props.searchItemsState.searchItems.items.length === 0) {
+    if (this.props.items.length === 0) {
       this.props.fetchSearchItems();
     }
   }
 
   renderSearchItems = () => {
-    const { searchItems, searchQuery } = this.props.searchItemsState;
+    const { items, fetchLessons } = this.props;
+    const { searchQuery } = this.props.searchState;
 
     if (searchQuery.length >= 1) {
-      const filteredItems = searchItems.items
+      const filteredItems = items
         .filter(item => item.name.toLowerCase().includes(searchQuery));
 
       return (
         filteredItems.map(item =>
-          <SearchListItem item={item} key={item.name} />,
+          (<SearchListItem
+              item={item}
+              key={item.name}
+              fetchLessons={fetchLessons}
+          />),
         )
       );
     }
@@ -42,7 +47,7 @@ export default class SearchList extends PureComponent {
 
 
   render() {
-    const { isLoading, isErrored } = this.props.searchItemsState;
+    const { isLoading, isErrored } = this.props.searchState;
 
     if (isLoading) {
       return <div className="loading-state col-12"><Spinner /></div>;

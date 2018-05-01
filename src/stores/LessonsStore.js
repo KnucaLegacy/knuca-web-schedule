@@ -4,17 +4,12 @@ import { ActionTypes as types } from '../actions/Action-types';
 
 
 const initialState = {
-  searchItems: {
-    groups: [],
-    teachers: [],
-    rooms: [],
-  },
+  lessons: [],
   isLoading: false,
   isErrored: false,
-  searchQuery: '',
 };
 
-class SearchListStore extends ReduceStore {
+class LessonsStore extends ReduceStore {
   constructor() {
     super(AppDispatcher);
   }
@@ -25,30 +20,26 @@ class SearchListStore extends ReduceStore {
 
   reduce(state, action) {
     switch (action.type) {
-      case types.FETCH_SEARCH_ITEMS_REQUEST:
+      case types.FETCH_LESSONS_REQUEST:
         return {
           ...state,
           isLoading: action.isLoading,
         };
-      case types.FETCH_SEARCH_ITEMS_SUCCESS:
+      case types.FETCH_LESSONS_SUCCESS:
+        console.log(action.lessons);
         return {
           ...state,
-          searchItems: action.searchItems,
+          lessons: action.lessons,
         };
-      case types.FETCH_SEARCH_ITEMS_ERROR:
+      case types.FETCH_LESSONS_ERROR:
         return {
           ...state,
           isErrored: action.isErrored,
           error: action.error,
-        };
-      case types.FILTER_SEARCH_ITEMS:
-        return {
-          ...state,
-          searchQuery: action.searchQuery.toLowerCase(),
         };
       default: return state;
     }
   }
 }
 
-export default new SearchListStore();
+export default new LessonsStore();

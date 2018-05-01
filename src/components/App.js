@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-// import LessonTable from './Table';
+import LessonTable from './LessonTable';
 import SearchList from './SearchList';
 import SearchInput from './SearchInput';
 
@@ -14,11 +14,13 @@ const App = props => (
     <Row>
       <Col>
         <SearchInput onInputChange={props.onInputChange} />
-        {/* <LessonTable /> */}
         <SearchList
-            searchItemsState={props.searchItemsState}
+            items={props.items}
+            searchState={props.searchState}
+            fetchLessons={props.fetchLessons}
             fetchSearchItems={props.fetchSearchItems}
         />
+        <LessonTable />
       </Col>
     </Row>
   </Container>

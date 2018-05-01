@@ -11,14 +11,9 @@ export async function getItems() {
   const rooms = await axios(`${url}/rooms`);
 
   const searchItems = {
-    groups,
-    teachers,
-    rooms,
-    items:[
-      ...(groups.data),
-      ...(teachers.data),
-      ...(rooms.data),
-    ],
+    groups: groups.data,
+    teachers: teachers.data,
+    rooms: rooms.data,
   };
 
   return searchItems;

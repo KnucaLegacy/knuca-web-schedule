@@ -6,7 +6,6 @@ import { Button, Input, InputGroupAddon, InputGroup } from 'reactstrap';
 const SearchInput = props => (
   <InputGroup className="main-input" size="lg">
     <Input
-        active
         onChange={props.onInputChange}
         placeholder="Почніть пошук..."
     />
