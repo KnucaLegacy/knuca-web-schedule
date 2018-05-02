@@ -1,6 +1,7 @@
 import { ActionTypes as types } from './Action-types';
 import { getLessons } from '../api/LessonsDataManager';
 import AppDispatcher from '../dispatcher/AppDispatcher';
+import { searchItems } from './SearchItemsActions';
 
 
 const lessonsFetchSuccess = lessons => ({
@@ -19,14 +20,10 @@ const lessonsIsErrored = error => ({
   error,
 });
 
-export const searchItems = query => AppDispatcher.dispatch({
-  type: types.FILTER_SEARCH_ITEMS,
-  searchQuery: query,
-});
-
 export async function fetchLessons(url) {
   try {
     AppDispatcher.dispatch(lessonsIsLoading(true));
+    searchItems('');
 
     const lessons = await getLessons(url);
 

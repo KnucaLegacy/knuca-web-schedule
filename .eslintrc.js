@@ -29,5 +29,6 @@ module.exports = {
       "function-paren-newline": 0,
       "class-methods-use-this": 0,
       "react/require-default-props": 0,
+      "import/prefer-default-export": 0,
     }
   };

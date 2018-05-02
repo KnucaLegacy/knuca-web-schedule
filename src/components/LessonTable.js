@@ -1,27 +1,16 @@
 import React from 'react';
-
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 
-const LessonTable = () => {
-  const data = [
-    {
-      time: '09:00',
-      subject: 'Об`ектно-оріентов.програмування',
-      lessonType: 'Лекція',
-      teachers: 'доц. Цюцюра М.І.',
-      rooms: 'ауд. 366',
-      groups: 'ІУСТ-21, ІТП-21, ІТП-22',
-    },
-    {
-      time: '10:30',
-      subject: 'Об`ектно-оріентов.програмування',
-      lessonType: 'Лабораторна',
-      teachers: 'ас. Миронов О.В., ст.викл. Гончаренко Т.А.',
-      rooms: 'ауд. 368',
-      groups: 'ІУСТ-21',
-    },
-  ];
+import mapLessonResponseToTableData from '../utils/mapLessonResponseToTableData';
+import weekDayOrToday from '../utils/weekDayOrToday';
+
+const LessonTable = ({ lessons, isLoading }) => {
+  const data = mapLessonResponseToTableData(lessons);
+  const day = lessons.length > 0 ? lessons[0].date : undefined;
+  const weekDay = weekDayOrToday(day);
+  const pageSize = data.length || 4;
+
   return (
     <div>
       <ReactTable
@@ -29,7 +18,7 @@ const LessonTable = () => {
           noDataText="На сьогодні немає пар"
           columns={[
             {
-              Header: 'Вівторок - 01/05/2018',
+              Header: weekDay,
               columns: [
                 {
                   Header: 'Час',
@@ -53,7 +42,7 @@ const LessonTable = () => {
                 {
                   Header: 'Аудиторія',
                   accessor: 'rooms',
-                  maxWidth: 100,
+                  minWidth: 100,
                 },
                 {
                   Header: 'Групи',
@@ -64,10 +53,12 @@ const LessonTable = () => {
             },
           ]}
 
-          defaultPageSize={5}
+          defaultPageSize={4}
+          pageSize={pageSize}
           showPageSizeOptions={false}
           showPagination={false}
           sortable={false}
+          loading={isLoading}
           className="-striped -highlight"
       />
       <br />

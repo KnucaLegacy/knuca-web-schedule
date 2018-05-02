@@ -20,7 +20,10 @@ const App = props => (
             fetchLessons={props.fetchLessons}
             fetchSearchItems={props.fetchSearchItems}
         />
-        <LessonTable />
+        <LessonTable
+            lessons={props.lessonsState.lessons}
+            isLoading={props.lessonsState.isLoading}
+        />
       </Col>
     </Row>
   </Container>

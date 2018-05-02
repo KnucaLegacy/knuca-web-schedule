@@ -30,6 +30,7 @@ class LessonsStore extends ReduceStore {
         return {
           ...state,
           lessons: action.lessons,
+          isFetched: action.isFetched,
         };
       case types.FETCH_LESSONS_ERROR:
         return {
