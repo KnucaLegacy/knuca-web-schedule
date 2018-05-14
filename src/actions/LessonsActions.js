@@ -1,7 +1,6 @@
 import { ActionTypes as types } from './Action-types';
 import { getLessons } from '../api/LessonsDataManager';
 import AppDispatcher from '../dispatcher/AppDispatcher';
-import { searchItems } from './SearchItemsActions';
 
 
 const lessonsFetchSuccess = lessons => ({
@@ -23,7 +22,6 @@ const lessonsIsErrored = error => ({
 export async function fetchLessons(url) {
   try {
     AppDispatcher.dispatch(lessonsIsLoading(true));
-    searchItems('');
 
     const lessons = await getLessons(url);
 

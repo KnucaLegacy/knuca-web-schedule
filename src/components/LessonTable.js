@@ -23,7 +23,7 @@ const LessonTable = ({ lessons, isLoading }) => {
                 {
                   Header: 'Час',
                   accessor: 'time',
-                  maxWidth: 50,
+                  maxWidth: 70,
                 },
                 {
                   Header: 'Дісципліна',

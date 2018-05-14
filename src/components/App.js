@@ -13,7 +13,10 @@ const App = props => (
   <Container>
     <Row>
       <Col>
-        <SearchInput onInputChange={props.onInputChange} />
+        <SearchInput
+            onInputChange={props.onInputChange}
+            searchQuery={props.searchState.searchQuery}
+        />
         <SearchList
             items={props.items}
             searchState={props.searchState}

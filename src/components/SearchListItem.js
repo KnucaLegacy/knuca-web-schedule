@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ListGroupItem } from 'reactstrap';
+import { searchItems } from '../actions/SearchItemsActions';
 
 const SearchListItem = ({ item, fetchLessons }) => (
   <ListGroupItem
       tag="a"
       action
       onClick={() => {
-        console.log('item', item);
         const url = `${item.url}/${item.id}`;
+        searchItems(item.name);
         fetchLessons(url);
       }}
   >
@@ -21,5 +22,5 @@ SearchListItem.propTypes = {
     name: PropTypes.string,
   }),
 };
-
+searchItems('');
 export default SearchListItem;
