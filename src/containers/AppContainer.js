@@ -9,6 +9,7 @@ import { fetchSearchItems, searchItems } from '../actions/SearchItemsActions';
 import { fetchLessons } from '../actions/LessonsActions';
 
 import withUrlProp from '../utils/withUrlProp';
+import { loadState, saveState } from '../utils/localStorage';
 
 
 function onInputChange(event) {
@@ -32,7 +33,7 @@ class AppContainer extends Component {
       searchQuery: itemsState.searchQuery,
     };
     const { groups, rooms, teachers } = itemsState.searchItems;
-    let items = [];
+    let items = loadState() || [];
 
     if (
       groups.length > 0 &&
@@ -47,6 +48,7 @@ class AppContainer extends Component {
         ...roomsWithUrl,
         ...teachersWithUrl,
       ];
+      saveState(items);
     }
 
     return {
