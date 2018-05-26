@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-import LessonTable from './LessonTable';
+import LessonsContainer from '../containers/LessonsContainer';
 import SearchList from './SearchList';
 import SearchInput from './SearchInput';
 
@@ -26,7 +26,7 @@ const App = props => (
             fetchLessons={props.fetchLessons}
             fetchSearchItems={props.fetchSearchItems}
         />
-        <LessonTable
+        <LessonsContainer
             lessonsState={props.lessonsState}
         />
       </Col>

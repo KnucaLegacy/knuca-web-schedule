@@ -3,7 +3,6 @@ import { Container } from 'flux/utils';
 import App from '../components/App';
 
 import SearchListStore from '../stores/SearchListStore';
-import LessonsStore from '../stores/LessonsStore';
 import FilterItemsStore from '../stores/FilterItemsStore';
 
 import {
@@ -34,14 +33,12 @@ class AppContainer extends Component {
   static getStores() {
     return [
       SearchListStore,
-      LessonsStore,
       FilterItemsStore,
     ];
   }
 
   static calculateState() {
     const itemsState = SearchListStore.getState();
-    const lessonsState = LessonsStore.getState();
     const { searchQuery } = FilterItemsStore.getState();
 
     const searchState = {
@@ -54,7 +51,6 @@ class AppContainer extends Component {
     return {
       items,
       searchState,
-      lessonsState,
       searchQuery,
 
       fetchSearchItems,
