@@ -5,6 +5,9 @@ import { ActionTypes as types } from '../actions/Action-types';
 
 const initialState = {
   lessons: [],
+  searchItem: {
+    name: '',
+  },
   isLoading: false,
   isFetched: false,
   isErrored: false,
@@ -30,6 +33,7 @@ class LessonsStore extends ReduceStore {
         return {
           ...state,
           lessons: action.lessons,
+          searchItem: action.searchItem,
           isFetched: action.isFetched,
         };
       case types.FETCH_LESSONS_ERROR:

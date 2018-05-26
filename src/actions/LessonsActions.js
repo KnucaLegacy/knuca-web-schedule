@@ -3,9 +3,10 @@ import { getLessons } from '../api/LessonsDataManager';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 
 
-const lessonsFetchSuccess = lessons => ({
+const lessonsFetchSuccess = (lessons, searchItem) => ({
   type: types.FETCH_LESSONS_SUCCESS,
   lessons,
+  searchItem,
   isFetched: true,
 });
 
@@ -22,13 +23,13 @@ const lessonsIsErrored = error => ({
   error,
 });
 
-export async function fetchLessons(url) {
+export async function fetchLessons(url, searchItem) {
   try {
     AppDispatcher.dispatch(lessonsIsLoading(true));
     const lessons = await getLessons(url);
 
     AppDispatcher.dispatch(lessonsIsLoading(false));
-    AppDispatcher.dispatch(lessonsFetchSuccess(lessons));
+    AppDispatcher.dispatch(lessonsFetchSuccess(lessons, searchItem));
   } catch (error) {
     AppDispatcher.dispatch(lessonsIsLoading(false));
     AppDispatcher.dispatch(lessonsIsErrored(error));

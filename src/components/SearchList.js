@@ -7,14 +7,14 @@ import Spinner from './Spinner';
 
 export default class SearchList extends PureComponent {
   static propTypes = {
-    searchItemsState: PropTypes.shape({
-      searchItems: PropTypes.shape({
-        items: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-      }),
+    searchState: PropTypes.shape({
       isLoading: PropTypes.bool,
       isErrored: PropTypes.bool,
       searchQuery: PropTypes.string,
     }),
+    items: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    searchQuery: PropTypes.string,
+    fetchLessons: PropTypes.func,
     fetchSearchItems: PropTypes.func,
   }
 
@@ -25,8 +25,14 @@ export default class SearchList extends PureComponent {
   }
 
   renderSearchItems = () => {
-    const { items, fetchLessons, searchQuery } = this.props;
-    const { isCollapsed } = this.props.searchState;
+    const {
+      items,
+      fetchLessons,
+      searchQuery,
+      searchState: {
+        isCollapsed,
+      },
+    } = this.props;
 
     if (searchQuery.length >= 1 && isCollapsed) {
       const filteredItems = items
@@ -47,7 +53,7 @@ export default class SearchList extends PureComponent {
 
 
   render() {
-    const { isLoading, isErrored } = this.props.searchState;
+    const { searchState: { isLoading, isErrored } } = this.props;
 
     if (isLoading) {
       return <div className="loading-state col-12"><Spinner /></div>;

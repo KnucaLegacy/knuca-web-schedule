@@ -11,7 +11,7 @@ const SearchListItem = ({ item, fetchLessons }) => (
         const url = `${item.url}/${item.id}`;
         searchItems(item.name);
         closeSearchList();
-        fetchLessons(url);
+        fetchLessons(url, item);
       }}
   >
     {item.name}
@@ -22,6 +22,7 @@ SearchListItem.propTypes = {
   item: PropTypes.shape({
     name: PropTypes.string,
   }),
+  fetchLessons: PropTypes.func,
 };
-searchItems('');
+
 export default SearchListItem;

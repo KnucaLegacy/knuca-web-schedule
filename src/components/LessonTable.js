@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactTable from 'react-table';
+import PropTypes from 'prop-types';
 import 'react-table/react-table.css';
 
 import mapLessonResponseToTableData from '../utils/mapLessonResponseToTableData';
 import weekDayOrToday from '../utils/weekDayOrToday';
 
-const LessonTable = ({ lessonsState: { lessons, isLoading, isFetched } }) => {
+const LessonTable = ({
+  lessonsState: {
+    lessons, isLoading, isFetched, searchItem,
+  },
+}) => {
   const data = mapLessonResponseToTableData(lessons);
   const day = lessons.length > 0 ? lessons[0].date : undefined;
-  const weekDay = weekDayOrToday(day);
+  const header = `${searchItem.name} - ${weekDayOrToday(day)}`;
   const pageSize = data.length || 4;
   if (isLoading || isFetched) {
     return (
@@ -18,7 +23,7 @@ const LessonTable = ({ lessonsState: { lessons, isLoading, isFetched } }) => {
             noDataText="На сьогодні немає пар"
             columns={[
             {
-              Header: weekDay,
+              Header: header,
               columns: [
                 {
                   Header: 'Час',
@@ -66,6 +71,18 @@ const LessonTable = ({ lessonsState: { lessons, isLoading, isFetched } }) => {
     );
   }
   return null;
+};
+
+LessonTable.propTypes = {
+  lessonsState: PropTypes.shape({
+    lessons: PropTypes.array,
+    isLoading: PropTypes.bool,
+    isFetched: PropTypes.bool,
+    searchItem: PropTypes.shape({
+      name: PropTypes.string,
+      id: PropTypes.number,
+    }),
+  }),
 };
 
 export default LessonTable;
