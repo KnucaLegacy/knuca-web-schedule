@@ -1,6 +1,7 @@
 import { ActionTypes as types } from './Action-types';
 import { getItems } from '../api/SearchItemsDataManager';
 import AppDispatcher from '../dispatcher/AppDispatcher';
+import mapItemsResponseToArray from '../utils/mapItemsResponseToArray';
 
 
 const searchItemsFetchSuccess = searchItems => ({
@@ -38,7 +39,8 @@ export async function fetchSearchItems() {
   try {
     AppDispatcher.dispatch(searchItemsIsLoading(true));
 
-    const items = await getItems();
+    const itemsResponse = await getItems();
+    const items = mapItemsResponseToArray(itemsResponse);
 
     AppDispatcher.dispatch(searchItemsIsLoading(false));
     AppDispatcher.dispatch(searchItemsFetchSuccess(items));

@@ -7,16 +7,13 @@ import SearchInput from '../components/SearchInput';
 import SearchListStore from '../stores/SearchListStore';
 import FilterItemsStore from '../stores/FilterItemsStore';
 
+import { fetchLessons } from '../actions/LessonsActions';
 import {
   fetchSearchItems,
   searchItems,
   openSearchList,
   closeSearchList,
 } from '../actions/SearchItemsActions';
-import { fetchLessons } from '../actions/LessonsActions';
-
-import withUrlProp from '../utils/withUrlProp';
-import { loadState, saveState } from '../utils/localStorage';
 
 
 function onInputChange(event) {
@@ -40,18 +37,10 @@ class SearchContainer extends Component {
   }
 
   static calculateState() {
-    const itemsState = SearchListStore.getState();
+    const searchState = SearchListStore.getState();
     const { searchQuery } = FilterItemsStore.getState();
 
-    const searchState = {
-      isLoading: itemsState.isLoading,
-      isErrored: itemsState.isErrored,
-      isCollapsed: itemsState.isCollapsed,
-    };
-    const items = getItems(itemsState);
-
     return {
-      items,
       searchState,
       searchQuery,
 
@@ -67,33 +56,21 @@ class SearchContainer extends Component {
   render() {
     return (
       <React.Fragment>
-        <SearchInput {...this.state} />
-        <SearchList {...this.state} />
+        <SearchInput
+            onBlur={this.state.onBlur}
+            onFocus={this.state.onFocus}
+            onInputChange={this.state.onInputChange}
+            searchQuery={this.state.searchQuery}
+        />
+        <SearchList
+            searchState={this.state.searchState}
+            searchQuery={this.state.searchQuery}
+            fetchLessons={this.state.fetchLessons}
+            fetchSearchItems={this.state.fetchSearchItems}
+        />
       </React.Fragment>
     );
   }
-}
-
-function getItems(itemsState) {
-  const { groups, rooms, teachers } = itemsState.searchItems;
-  let items = loadState() || [];
-
-  if (
-    groups.length > 0 &&
-      items.length === 0
-  ) {
-    const groupsWithUrl = groups.map(item => withUrlProp(item, '/lessons/group/'));
-    const roomsWithUrl = rooms.map(item => withUrlProp(item, '/lessons/room/'));
-    const teachersWithUrl = teachers.map(item => withUrlProp(item, '/lessons/teacher/'));
-
-    items = [
-      ...groupsWithUrl,
-      ...roomsWithUrl,
-      ...teachersWithUrl,
-    ];
-    saveState(items);
-  }
-  return items;
 }
 
 

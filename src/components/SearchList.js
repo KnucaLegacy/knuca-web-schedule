@@ -10,32 +10,31 @@ export default class SearchList extends PureComponent {
     searchState: PropTypes.shape({
       isLoading: PropTypes.bool,
       isErrored: PropTypes.bool,
-      searchQuery: PropTypes.string,
+      searchItems: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     }),
-    items: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     searchQuery: PropTypes.string,
     fetchLessons: PropTypes.func,
     fetchSearchItems: PropTypes.func,
   }
 
   componentDidMount() {
-    if (this.props.items.length === 0) {
+    if (this.props.searchState.searchItems.length === 0) {
       this.props.fetchSearchItems();
     }
   }
 
   renderSearchItems = () => {
     const {
-      items,
       fetchLessons,
       searchQuery,
       searchState: {
         isCollapsed,
+        searchItems,
       },
     } = this.props;
 
     if (searchQuery.length >= 1 && isCollapsed) {
-      const filteredItems = items
+      const filteredItems = searchItems
         .filter(item => item.name.toLowerCase().includes(searchQuery));
 
       return (

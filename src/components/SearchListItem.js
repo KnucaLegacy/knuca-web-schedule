@@ -8,7 +8,7 @@ const SearchListItem = ({ item, fetchLessons }) => (
       tag="a"
       action
       onClick={() => {
-        const url = `${item.url}/${item.id}`;
+        const url = `/lessons/${item.type}/${item.id}`;
         searchItems(item.name);
         closeSearchList();
         fetchLessons(url, item);
