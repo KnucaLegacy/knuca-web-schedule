@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ListGroupItem } from 'reactstrap';
-import { searchItems } from '../actions/SearchItemsActions';
+import { searchItems, closeSearchList } from '../actions/SearchItemsActions';
 
 const SearchListItem = ({ item, fetchLessons }) => (
   <ListGroupItem
@@ -10,6 +10,7 @@ const SearchListItem = ({ item, fetchLessons }) => (
       onClick={() => {
         const url = `${item.url}/${item.id}`;
         searchItems(item.name);
+        closeSearchList();
         fetchLessons(url);
       }}
   >

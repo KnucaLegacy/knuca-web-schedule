@@ -25,10 +25,10 @@ export default class SearchList extends PureComponent {
   }
 
   renderSearchItems = () => {
-    const { items, fetchLessons } = this.props;
-    const { searchQuery } = this.props.searchState;
+    const { items, fetchLessons, searchQuery } = this.props;
+    const { isCollapsed } = this.props.searchState;
 
-    if (searchQuery.length >= 1) {
+    if (searchQuery.length >= 1 && isCollapsed) {
       const filteredItems = items
         .filter(item => item.name.toLowerCase().includes(searchQuery));
 

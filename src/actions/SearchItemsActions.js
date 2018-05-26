@@ -19,6 +19,16 @@ const searchItemsIsErrored = error => ({
   error,
 });
 
+export const openSearchList = () => AppDispatcher.dispatch({
+  type: types.SEARCH_LIST_OPENED,
+  isCollapsed: true,
+});
+
+export const closeSearchList = () => AppDispatcher.dispatch({
+  type: types.SEARCH_LIST_CLOSED,
+  isCollapsed: false,
+});
+
 export const searchItems = query => AppDispatcher.dispatch({
   type: types.FILTER_SEARCH_ITEMS,
   searchQuery: query,

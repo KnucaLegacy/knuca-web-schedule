@@ -9,9 +9,9 @@ const initialState = {
     teachers: [],
     rooms: [],
   },
+  isCollapsed: true,
   isLoading: false,
   isErrored: false,
-  searchQuery: '',
 };
 
 class SearchListStore extends ReduceStore {
@@ -41,11 +41,17 @@ class SearchListStore extends ReduceStore {
           isErrored: action.isErrored,
           error: action.error,
         };
-      case types.FILTER_SEARCH_ITEMS:
+      case types.SEARCH_LIST_OPENED:
         return {
           ...state,
-          searchQuery: action.searchQuery.toLowerCase(),
+          isCollapsed: action.isCollapsed,
         };
+      case types.SEARCH_LIST_CLOSED:
+        return {
+          ...state,
+          isCollapsed: action.isCollapsed,
+        };
+
       default: return state;
     }
   }

@@ -6,6 +6,7 @@ import { ActionTypes as types } from '../actions/Action-types';
 const initialState = {
   lessons: [],
   isLoading: false,
+  isFetched: false,
   isErrored: false,
 };
 

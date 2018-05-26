@@ -6,16 +6,19 @@ import AppDispatcher from '../dispatcher/AppDispatcher';
 const lessonsFetchSuccess = lessons => ({
   type: types.FETCH_LESSONS_SUCCESS,
   lessons,
+  isFetched: true,
 });
 
 const lessonsIsLoading = bool => ({
   type: types.FETCH_LESSONS_REQUEST,
   isLoading: bool,
+  isFetched: !bool,
 });
 
 const lessonsIsErrored = error => ({
   type: types.FETCH_LESSONS_ERROR,
   isErrored: true,
+  isFetched: false,
   error,
 });
 

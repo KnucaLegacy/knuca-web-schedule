@@ -30,5 +30,6 @@ module.exports = {
       "class-methods-use-this": 0,
       "react/require-default-props": 0,
       "import/prefer-default-export": 0,
+      "no-use-before-define": 0,
     }
   };

@@ -15,10 +15,13 @@ const App = props => (
       <Col>
         <SearchInput
             onInputChange={props.onInputChange}
-            searchQuery={props.searchState.searchQuery}
+            onFocus={props.onFocus}
+            onBlur={props.onBlur}
+            searchQuery={props.searchQuery}
         />
         <SearchList
             items={props.items}
+            searchQuery={props.searchQuery}
             searchState={props.searchState}
             fetchLessons={props.fetchLessons}
             fetchSearchItems={props.fetchSearchItems}

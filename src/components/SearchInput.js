@@ -7,8 +7,11 @@ const SearchInput = props => (
   <InputGroup className="main-input" size="lg">
     <Input
         onChange={props.onInputChange}
+        onFocus={props.onFocus}
+        onBlur={props.onBlur}
         placeholder="Почніть пошук..."
         value={props.searchQuery}
+        autoFocus
     />
     <InputGroupAddon addonType="prepend">
       <Button color="primary">
@@ -20,6 +23,8 @@ const SearchInput = props => (
 
 SearchInput.propTypes = {
   onInputChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
   searchQuery: PropTypes.string,
 };
 
