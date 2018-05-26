@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactTable from 'react-table';
 import PropTypes from 'prop-types';
+import { Button, Row, Col } from 'reactstrap';
+
+
 import 'react-table/react-table.css';
 
 import mapLessonResponseToTableData from '../utils/mapLessonResponseToTableData';
@@ -67,6 +70,11 @@ const LessonTable = ({
             className="-striped -highlight"
         />
         <br />
+        <Row>
+          <Col><Button outline block color="secondary">Завтра</Button></Col>
+          <Col><Button outline block color="secondary">Тиждень</Button></Col>
+          <Col><Button outline block color="secondary">След. тиждень</Button></Col>
+        </Row>
       </div>
     );
   }
