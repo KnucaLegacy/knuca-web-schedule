@@ -70,10 +70,11 @@ const LessonTable = ({
             className="-striped -highlight"
         />
         <br />
-        <Row>
-          <Col><Button outline block color="secondary">Завтра</Button></Col>
-          <Col><Button outline block color="secondary">Тиждень</Button></Col>
-          <Col><Button outline block color="secondary">След. тиждень</Button></Col>
+        <Row noGutters>
+          <Col><Button outline block color="info">Сьогодні</Button></Col>
+          <Col><Button outline block color="info">Завтра</Button></Col>
+          <Col><Button outline block color="info">Тиждень</Button></Col>
+          <Col><Button outline block color="info">Наст. тиждень</Button></Col>
         </Row>
       </div>
     );
