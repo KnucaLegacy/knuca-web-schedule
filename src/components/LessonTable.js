@@ -5,18 +5,18 @@ import 'react-table/react-table.css';
 import mapLessonResponseToTableData from '../utils/mapLessonResponseToTableData';
 import weekDayOrToday from '../utils/weekDayOrToday';
 
-const LessonTable = ({ lessons, isLoading }) => {
+const LessonTable = ({ lessonsState: { lessons, isLoading, isFetched } }) => {
   const data = mapLessonResponseToTableData(lessons);
   const day = lessons.length > 0 ? lessons[0].date : undefined;
   const weekDay = weekDayOrToday(day);
   const pageSize = data.length || 4;
-
-  return (
-    <div>
-      <ReactTable
-          data={data}
-          noDataText="На сьогодні немає пар"
-          columns={[
+  if (isLoading || isFetched) {
+    return (
+      <div>
+        <ReactTable
+            data={data}
+            noDataText="На сьогодні немає пар"
+            columns={[
             {
               Header: weekDay,
               columns: [
@@ -53,17 +53,19 @@ const LessonTable = ({ lessons, isLoading }) => {
             },
           ]}
 
-          defaultPageSize={4}
-          pageSize={pageSize}
-          showPageSizeOptions={false}
-          showPagination={false}
-          sortable={false}
-          loading={isLoading}
-          className="-striped -highlight"
-      />
-      <br />
-    </div>
-  );
+            defaultPageSize={4}
+            pageSize={pageSize}
+            showPageSizeOptions={false}
+            showPagination={false}
+            sortable={false}
+            loading={isLoading}
+            className="-striped -highlight"
+        />
+        <br />
+      </div>
+    );
+  }
+  return null;
 };
 
 export default LessonTable;

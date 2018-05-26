@@ -27,8 +27,7 @@ const App = props => (
             fetchSearchItems={props.fetchSearchItems}
         />
         <LessonTable
-            lessons={props.lessonsState.lessons}
-            isLoading={props.lessonsState.isLoading}
+            lessonsState={props.lessonsState}
         />
       </Col>
     </Row>

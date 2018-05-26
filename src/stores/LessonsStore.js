@@ -27,7 +27,7 @@ class LessonsStore extends ReduceStore {
           isLoading: action.isLoading,
         };
       case types.FETCH_LESSONS_SUCCESS:
-        console.log(action.lessons);
+        console.log(action);
         return {
           ...state,
           lessons: action.lessons,

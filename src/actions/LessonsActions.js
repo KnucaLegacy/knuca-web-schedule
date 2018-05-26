@@ -25,7 +25,6 @@ const lessonsIsErrored = error => ({
 export async function fetchLessons(url) {
   try {
     AppDispatcher.dispatch(lessonsIsLoading(true));
-
     const lessons = await getLessons(url);
 
     AppDispatcher.dispatch(lessonsIsLoading(false));
