@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Container } from 'flux/utils';
-import App from '../components/App';
+
+import SearchList from '../components/SearchList';
+import SearchInput from '../components/SearchInput';
 
 import SearchListStore from '../stores/SearchListStore';
 import FilterItemsStore from '../stores/FilterItemsStore';
@@ -29,7 +31,7 @@ function onBlur() {
   setTimeout(closeSearchList, 100);
 }
 
-class AppContainer extends Component {
+class SearchContainer extends Component {
   static getStores() {
     return [
       SearchListStore,
@@ -63,7 +65,12 @@ class AppContainer extends Component {
   }
 
   render() {
-    return <App {...this.state} />;
+    return (
+      <React.Fragment>
+        <SearchInput {...this.state} />
+        <SearchList {...this.state} />
+      </React.Fragment>
+    );
   }
 }
 
@@ -90,4 +97,4 @@ function getItems(itemsState) {
 }
 
 
-export default Container.create(AppContainer);
+export default Container.create(SearchContainer);
