@@ -23,7 +23,7 @@ const LessonTable = ({
       <div>
         <ReactTable
             data={data}
-            noDataText="На сьогодні немає пар"
+            noDataText="Розклад відсутній."
             columns={[
             {
               Header: header,
