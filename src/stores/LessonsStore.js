@@ -35,6 +35,7 @@ class LessonsStore extends ReduceStore {
           lessons: action.lessons,
           searchItem: action.searchItem,
           isFetched: action.isFetched,
+          date: action.date,
         };
       case types.FETCH_LESSONS_ERROR:
         return {

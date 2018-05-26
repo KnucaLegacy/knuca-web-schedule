@@ -1,21 +1,21 @@
 import React from 'react';
 import ReactTable from 'react-table';
 import PropTypes from 'prop-types';
-import { Button, Row, Col } from 'reactstrap';
-
 
 import 'react-table/react-table.css';
+
+import LessonButtons from './LessonButtons';
 
 import mapLessonResponseToTableData from '../utils/mapLessonResponseToTableData';
 import weekDayOrToday from '../utils/weekDayOrToday';
 
 const LessonTable = ({
   lessonsState: {
-    lessons, isLoading, isFetched, searchItem,
+    lessons, isLoading, isFetched, searchItem, date,
   },
 }) => {
   const data = mapLessonResponseToTableData(lessons);
-  const day = lessons.length > 0 ? lessons[0].date : undefined;
+  const day = lessons.length > 0 ? lessons[0].date : date;
   const header = `${searchItem.name} - ${weekDayOrToday(day)}`;
   const pageSize = data.length || 4;
   if (isLoading || isFetched) {
@@ -70,12 +70,7 @@ const LessonTable = ({
             className="-striped -highlight"
         />
         <br />
-        <Row noGutters>
-          <Col><Button outline block color="info">Сьогодні</Button></Col>
-          <Col><Button outline block color="info">Завтра</Button></Col>
-          <Col><Button outline block color="info">Тиждень</Button></Col>
-          <Col><Button outline block color="info">Наст. тиждень</Button></Col>
-        </Row>
+        <LessonButtons searchItem={searchItem} isDisabled={isLoading} />
       </div>
     );
   }
@@ -89,7 +84,7 @@ LessonTable.propTypes = {
     isFetched: PropTypes.bool,
     searchItem: PropTypes.shape({
       name: PropTypes.string,
-      id: PropTypes.number,
+      id: PropTypes.string,
     }),
   }),
 };

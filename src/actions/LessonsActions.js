@@ -1,37 +1,39 @@
 import { ActionTypes as types } from './Action-types';
 import { getLessons } from '../api/LessonsDataManager';
 import AppDispatcher from '../dispatcher/AppDispatcher';
+import getTodayDate from '../utils/getTodayDate';
 
 
-const lessonsFetchSuccess = (lessons, searchItem) => ({
+const lessonsFetchSuccess = (lessons, searchItem, date) => AppDispatcher.dispatch({
   type: types.FETCH_LESSONS_SUCCESS,
   lessons,
   searchItem,
+  date,
   isFetched: true,
 });
 
-const lessonsIsLoading = bool => ({
+const lessonsIsLoading = bool => AppDispatcher.dispatch({
   type: types.FETCH_LESSONS_REQUEST,
   isLoading: bool,
   isFetched: !bool,
 });
 
-const lessonsIsErrored = error => ({
+const lessonsIsErrored = error => AppDispatcher.dispatch({
   type: types.FETCH_LESSONS_ERROR,
   isErrored: true,
   isFetched: false,
   error,
 });
 
-export async function fetchLessons(url, searchItem) {
+export async function fetchLessons(url, searchItem, date = getTodayDate()) {
   try {
-    AppDispatcher.dispatch(lessonsIsLoading(true));
+    lessonsIsLoading(true);
     const lessons = await getLessons(url);
 
-    AppDispatcher.dispatch(lessonsIsLoading(false));
-    AppDispatcher.dispatch(lessonsFetchSuccess(lessons, searchItem));
+    lessonsIsLoading(false);
+    lessonsFetchSuccess(lessons, searchItem, date);
   } catch (error) {
-    AppDispatcher.dispatch(lessonsIsLoading(false));
-    AppDispatcher.dispatch(lessonsIsErrored(error));
+    lessonsIsLoading(false);
+    lessonsIsErrored(error);
   }
 }

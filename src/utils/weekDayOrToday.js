@@ -1,5 +1,4 @@
 import { dateToWeekDay } from './lessonMappers';
+import getTodayDate from './getTodayDate';
 
-const today = () => new Date().toISOString().substring(0, 10);
-
-export default (date = today()) => dateToWeekDay(date);
+export default (date = getTodayDate()) => dateToWeekDay(date);
