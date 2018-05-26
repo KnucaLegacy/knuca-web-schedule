@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Input, InputGroupAddon, InputGroup } from 'reactstrap';
+import { Input, InputGroupAddon, InputGroup } from 'reactstrap';
+import ButtonWithPopover from './ButtonWithPopover';
 
 
 const SearchInput = props => (
@@ -14,9 +15,7 @@ const SearchInput = props => (
         autoFocus
     />
     <InputGroupAddon addonType="prepend">
-      <Button color="primary">
-        <span className="oi oi-magnifying-glass" />
-      </Button>
+      <ButtonWithPopover />
     </InputGroupAddon>
   </InputGroup>
 );

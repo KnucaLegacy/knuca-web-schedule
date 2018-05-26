@@ -16,7 +16,7 @@
     "react-scripts": "1.1.0",
     "react-table": "^6.8.2",
     "react-test-renderer": "^16.2.0",
-    "reactstrap": "5.0.0-beta"
+    "reactstrap": "^6.0.1"
   },
   "homepage": "https://markshulhin.github.io/knuca-web-schedule/",
   "scripts": {
