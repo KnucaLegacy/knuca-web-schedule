@@ -42,7 +42,7 @@ export default class LessonButtons extends PureComponent {
   render() {
     const { isDisabled } = this.props;
     return (
-      <Row noGutters>
+      <Row noGutters className="table-buttons">
         <Col>
           <Button
               outline

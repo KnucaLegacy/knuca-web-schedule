@@ -24,3 +24,8 @@ body {
   max-height: 350px;
   overflow-y: scroll;
 }
+
+/* Additional buttons */
+.table-buttons {
+  margin-bottom: 40px;
+}

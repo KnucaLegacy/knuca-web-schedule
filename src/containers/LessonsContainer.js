@@ -3,6 +3,7 @@ import { Container } from 'flux/utils';
 import 'core-js/es7/object';
 
 import LessonTable from '../components/LessonTable';
+import WeekScheduleList from '../components/WeekScheduleList';
 
 import LessonsStore from '../stores/LessonsStore';
 
@@ -23,18 +24,7 @@ class LessonsContainer extends Component {
 
   render() {
     if (this.state.lessonsState.isMany) {
-      const { lessons } = this.state.lessonsState;
-      return (
-        <div>
-          {Object.values(lessons).map((day) => {
-            const state = {
-              ...this.state.lessonsState,
-              lessons: day,
-            };
-            return <LessonTable lessonsState={state} />;
-          })}
-        </div>
-      );
+      return <WeekScheduleList lessonsState={this.state.lessonsState} />;
     }
     return (
       <React.Fragment>

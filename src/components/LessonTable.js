@@ -11,7 +11,7 @@ import weekDayOrToday from '../utils/weekDayOrToday';
 
 const LessonTable = ({
   lessonsState: {
-    lessons, isLoading, isFetched, searchItem, date,
+    lessons, isLoading, isFetched, searchItem, date, isMany,
   },
 }) => {
   const data = mapLessonResponseToTableData(lessons);
@@ -70,7 +70,10 @@ const LessonTable = ({
             className="-striped -highlight"
         />
         <br />
-        <LessonButtons searchItem={searchItem} isDisabled={isLoading} />
+        { isMany ?
+          null :
+          <LessonButtons searchItem={searchItem} isDisabled={isLoading} />
+        }
       </div>
     );
   }
