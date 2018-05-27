@@ -33,6 +33,12 @@ export default class LessonButtons extends PureComponent {
     fetchLessons(url, searchItem, undefined, true);
   }
 
+  onNextWeekClick = () => {
+    const { searchItem } = this.props;
+    const url = `/lessons/week/1/${searchItem.type}/${searchItem.id}`;
+    fetchLessons(url, searchItem, undefined, true);
+  }
+
   render() {
     const { isDisabled } = this.props;
     return (
@@ -76,6 +82,7 @@ export default class LessonButtons extends PureComponent {
               block
               color="info"
               disabled={isDisabled}
+              onClick={this.onNextWeekClick}
           >
             Наст. тиждень
           </Button>
