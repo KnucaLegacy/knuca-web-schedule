@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from 'flux/utils';
+import 'core-js/es7/object';
 
 import LessonTable from '../components/LessonTable';
 
@@ -21,7 +22,25 @@ class LessonsContainer extends Component {
   }
 
   render() {
-    return <LessonTable {...this.state} />;
+    if (this.state.lessonsState.isMany) {
+      const { lessons } = this.state.lessonsState;
+      return (
+        <div>
+          {Object.values(lessons).map((day) => {
+            const state = {
+              ...this.state.lessonsState,
+              lessons: day,
+            };
+            return <LessonTable lessonsState={state} />;
+          })}
+        </div>
+      );
+    }
+    return (
+      <React.Fragment>
+        <LessonTable {...this.state} />
+      </React.Fragment>
+    );
   }
 }
 

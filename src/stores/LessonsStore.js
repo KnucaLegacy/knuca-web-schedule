@@ -11,6 +11,7 @@ const initialState = {
   isLoading: false,
   isFetched: false,
   isErrored: false,
+  isMany: false,
 };
 
 class LessonsStore extends ReduceStore {
@@ -35,6 +36,7 @@ class LessonsStore extends ReduceStore {
           lessons: action.lessons,
           searchItem: action.searchItem,
           isFetched: action.isFetched,
+          isMany: action.isMany,
           date: action.date,
         };
       case types.FETCH_LESSONS_ERROR:

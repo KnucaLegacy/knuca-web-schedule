@@ -4,11 +4,12 @@ import AppDispatcher from '../dispatcher/AppDispatcher';
 import getTodayDate from '../utils/getTodayDate';
 
 
-const lessonsFetchSuccess = (lessons, searchItem, date) => AppDispatcher.dispatch({
+const lessonsFetchSuccess = (lessons, searchItem, date, isMany) => AppDispatcher.dispatch({
   type: types.FETCH_LESSONS_SUCCESS,
   lessons,
   searchItem,
   date,
+  isMany,
   isFetched: true,
 });
 
@@ -25,13 +26,14 @@ const lessonsIsErrored = error => AppDispatcher.dispatch({
   error,
 });
 
-export async function fetchLessons(url, searchItem, date = getTodayDate()) {
+export async function fetchLessons(url, searchItem, date = getTodayDate(), isMany = false) {
   try {
     lessonsIsLoading(true);
     const lessons = await getLessons(url);
 
     lessonsIsLoading(false);
-    lessonsFetchSuccess(lessons, searchItem, date);
+    console.log(isMany);
+    lessonsFetchSuccess(lessons, searchItem, date, isMany);
   } catch (error) {
     lessonsIsLoading(false);
     lessonsIsErrored(error);
