@@ -11,14 +11,23 @@ First of all, clone the repository
 git clone https://github.com/MarkShulhin/knuca-web-schedule
 cd knuca-web-schedule
 ```
+Then, install the dependencies
+```sh
+yarn
+```
 
+or, as alternative
+
+```sh
+npm install
+```
 
 ## Running the application
 
 In the project directory, you can run:
 
 ```sh
-npm start
+yarn start
 ```
 
 Runs the app in the development mode.<br>
@@ -28,13 +37,13 @@ The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
 ```sh
-npm test
+yarn test
 ```
 
 Launches the test runner in the interactive watch mode.<br>
 
 ```sh
-npm run build
+yarn build
 ```
 
 Builds the app for production to the `build` folder.<br>
