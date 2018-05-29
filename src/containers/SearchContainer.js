@@ -25,7 +25,7 @@ function onFocus() {
 }
 
 function onBlur() {
-  setTimeout(closeSearchList, 100);
+  setTimeout(closeSearchList, 400);
 }
 
 class SearchContainer extends Component {

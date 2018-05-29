@@ -32,7 +32,6 @@ export async function fetchLessons(url, searchItem, date = getTodayDate(), isMan
     const lessons = await getLessons(url);
 
     lessonsIsLoading(false);
-    console.log(isMany);
     lessonsFetchSuccess(lessons, searchItem, date, isMany);
   } catch (error) {
     lessonsIsLoading(false);
