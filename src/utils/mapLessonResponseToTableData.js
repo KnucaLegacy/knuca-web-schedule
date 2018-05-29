@@ -1,3 +1,4 @@
+import roomValidateMapper from './roomValidateMapper';
 import {
   orderToTime,
   courseToSubject,
@@ -11,6 +12,6 @@ export default lessons => lessons.map(lesson => ({
   subject: courseToSubject(lesson.course),
   lessonType: typeToString(lesson.course.type),
   teachers: objNamesToString(lesson.course.teachers),
-  rooms: objNamesToString(lesson.rooms),
+  rooms: roomValidateMapper(objNamesToString(lesson.rooms)),
   groups: objNamesToString(lesson.groups),
 }));
