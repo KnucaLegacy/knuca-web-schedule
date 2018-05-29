@@ -26,7 +26,7 @@ export default class WeekScheduleList extends PureComponent {
                 ...this.props.lessonsState,
                 lessons: day,
               };
-              return <LessonTable lessonsState={state} />;
+              return <LessonTable lessonsState={state} key={state.lessons[0].date} />;
             })}
             <LessonButtons searchItem={searchItem} isDisabled={isLoading} />
           </div>
