@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+import { Alert } from 'reactstrap';
 import LessonTable from './LessonTable';
 import LessonButtons from './LessonButtons';
 
@@ -13,21 +14,31 @@ export default class WeekScheduleList extends PureComponent {
         searchItem: PropTypes.shape({}),
       }),
     }
+
+    renderWeekOrNoSchedule = () => {
+      const { lessons } = this.props.lessonsState;
+      if (Object.keys(lessons).length !== 0) {
+        return Object.values(lessons).map((day) => {
+          const state = {
+            ...this.props.lessonsState,
+            lessons: day,
+          };
+          return <LessonTable lessonsState={state} key={state.lessons[0].date} />;
+        });
+      }
+      return (
+        <Alert color="primary">
+        Розклад відсутній
+        </Alert>
+      );
+    }
     render() {
-      const {
-        lessons, isLoading, isFetched, searchItem,
-      } = this.props.lessonsState;
+      const { isLoading, isFetched, searchItem } = this.props.lessonsState;
 
       if (isLoading || isFetched) {
         return (
           <div>
-            {Object.values(lessons).map((day) => {
-              const state = {
-                ...this.props.lessonsState,
-                lessons: day,
-              };
-              return <LessonTable lessonsState={state} key={state.lessons[0].date} />;
-            })}
+            {this.renderWeekOrNoSchedule()}
             <LessonButtons searchItem={searchItem} isDisabled={isLoading} />
           </div>
         );
