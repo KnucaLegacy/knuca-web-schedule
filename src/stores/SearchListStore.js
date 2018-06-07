@@ -1,7 +1,7 @@
 import { ReduceStore } from 'flux/utils';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import { ActionTypes as types } from '../actions/Action-types';
-import { loadState } from '../utils/localStorage';
+import { loadState } from '../utils/sessionStorage';
 
 const initialState = {
   searchItems: loadState() || [],

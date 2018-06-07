@@ -1,4 +1,4 @@
-import { saveState } from './localStorage';
+import { saveState } from './sessionStorage';
 
 const mapItemsResponseToArray = (searchItems) => {
   const { groups } = searchItems;
