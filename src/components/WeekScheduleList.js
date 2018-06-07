@@ -33,12 +33,17 @@ export default class WeekScheduleList extends PureComponent {
       );
     }
     render() {
-      const { isLoading, isFetched, searchItem } = this.props.lessonsState;
+      const {
+        isLoading, isFetched, searchItem,
+      } = this.props.lessonsState;
 
       if (isLoading || isFetched) {
         return (
           <div>
-            {this.renderWeekOrNoSchedule()}
+            {isLoading ? <LessonTable lessonsState={{
+              isLoading, searchItem, lessons: [], isMany: true,
+            }}
+            /> : this.renderWeekOrNoSchedule()}
             <LessonButtons searchItem={searchItem} isDisabled={isLoading} />
           </div>
         );
