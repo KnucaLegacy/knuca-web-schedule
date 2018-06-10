@@ -44,7 +44,7 @@ export default class ButtonWithPopover extends Component {
                   color="danger"
                   onClick={this.toggle}
               >
-              Поняв
+              Зрозуміло
               </Button>
             </PopoverBody>
           </Popover>
