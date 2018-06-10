@@ -1,5 +1,6 @@
 body {
   background: url('../img/Pattern.png') repeat;
+  background-size: 540px 480px;
 }
 
 .main-input input {
