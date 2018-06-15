@@ -3,8 +3,8 @@ import axios from 'axios';
 import config from '../config/config';
 
 export async function getItems() {
-  const { serverApiUrl, port } = config;
-  const url = `${serverApiUrl}:${port}`;
+  const { serverApiUrl } = config;
+  const url = `${serverApiUrl}`;
 
   const groups = await axios(`${url}/groups`);
   const teachers = await axios(`${url}/teachers`);

@@ -3,8 +3,8 @@ import axios from 'axios';
 import config from '../config/config';
 
 export async function getLessons(endPoint) {
-  const { serverApiUrl, port } = config;
-  const url = `${serverApiUrl}:${port}/${endPoint}`;
+  const { serverApiUrl } = config;
+  const url = `${serverApiUrl}/${endPoint}`;
   
   const lessons = await axios(url);
     
