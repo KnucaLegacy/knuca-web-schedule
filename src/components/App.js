@@ -8,8 +8,9 @@ import benefitsImage from '../img/benefits.png';
 import monitorImage from '../img/search-monitor.png';
 import tgPhonesImage from '../img/tg-phones.png';
 import tgScreenshots from '../img/tg-screenshots.png';
-import gmailLogo from '../img/gmail.png';
+import gmailLogo from '../img/mail.png';
 import tgLogo from '../img/telegram.png';
+import KnucaLegacyLogo from '../img/logo.png';
 
 import '../css/App.css';
 import '../css/Grid.css';
@@ -78,7 +79,10 @@ const App = () => (
       <Container>
         <Row>
           <Col className="page-footer">
-            <div className="footer-credits">&copy; Knuca Legacy 2018, All rights reserved.</div>
+            <div className="footer-credits">
+              <img src={KnucaLegacyLogo} alt="Knuca Legacy logo" />
+              <span>&copy; Knuca Legacy 2018, All rights reserved.</span>
+            </div>
             <div className="footer-contacts">
               <span>Зв`яжіться з нами</span>
               <a href="knuca-legacy.gmail.com">
