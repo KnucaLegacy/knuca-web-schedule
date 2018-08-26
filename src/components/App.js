@@ -47,7 +47,7 @@ const App = () => (
                   size="md"
                   color="info"
                   tag="a"
-                  href="http://knuca.com"
+                  href="https://t.me/KNUCA_ScheduleBot"
                   className="text-block-link"
               >
               Приєднуйся
