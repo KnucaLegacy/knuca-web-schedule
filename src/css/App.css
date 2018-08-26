@@ -86,6 +86,7 @@
 .news-item .upper-left img {
   top: 90px;
   position: absolute;
+  box-shadow: 0 5px 11px 0 rgba(0,0,0,.3), 0 4px 15px 0 rgba(0,0,0,.3);
 }
 
 .news-item .mid-left img {
@@ -124,6 +125,10 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.footer-credits img {
+  margin-right: 16px;
 }
 
 .footer-contacts a {
