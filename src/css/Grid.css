@@ -1,3 +1,15 @@
-.container {
+#search-bg {
+    background: url('../img/Pattern.png') repeat;
+    background-size: 540px 480px;
+    min-height: 100vh;
+}
+
+.search-container {
     margin-top: 30vh;
+}
+
+.news-container {
+    background: url('../img/bg.png') no-repeat;
+    margin-top: -20px;
+    height: 2427px;
 }
