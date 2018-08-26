@@ -106,3 +106,38 @@
 .news-item .low-left .text-block p {
   margin-bottom: 8px;
 }
+
+.news-item .low-right img {
+  position: absolute;
+  right: 0;
+}
+
+/* Footer */
+
+footer {
+  background-color: #0d0d0d;
+}
+
+.page-footer {
+  height: 100px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-contacts a {
+  filter: grayscale(1);
+}
+
+.footer-contacts a:hover {
+  filter: grayscale(0);
+}
+
+.footer-contacts span {
+  margin-right: 26px;
+}
+
+.footer-contacts a:last-child {
+  margin-left: 12px;
+}
