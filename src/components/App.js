@@ -8,14 +8,30 @@ import '../css/App.css';
 import '../css/Grid.css';
 
 const App = () => (
-  <Container>
-    <Row>
-      <Col>
-        <SearchContainer />
-        <LessonsContainer />
-      </Col>
-    </Row>
-  </Container>
+  <div id="main">
+    <div id="search-bg">
+      <Container>
+        <Row>
+          <Col className="search-container">
+            <SearchContainer />
+            <LessonsContainer />
+          </Col>
+        </Row>
+      </Container>
+    </div>
+    <div className="news-container">
+      <Container>
+        <Row>
+          <Col className=""/>
+          <Col />
+        </Row>
+        <Row>
+          <Col />
+          <Col />
+        </Row>
+      </Container>
+    </div>
+  </div>
 );
 
 
