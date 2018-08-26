@@ -15,3 +15,20 @@
 .table-buttons {
   margin-bottom: 40px;
 }
+
+/* News  */
+.news-item {
+  height: 522px;
+  padding-top: 8px;
+  position: relative;
+}
+
+.news-item .up-right img {
+  bottom: 0;
+  position: absolute;
+}
+
+.news-item .up-left img {
+  top: 90px;
+  position: absolute;
+}
