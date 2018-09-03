@@ -1,5 +1,5 @@
 #search-bg {
-    background: url('../img/Pattern.png') repeat;
+    background: url('../img/xl/pattern.png') repeat;
     background-size: 540px 480px;
     min-height: 100vh;
 }
@@ -9,7 +9,20 @@
 }
 
 .news-container {
-    background: url('../img/bg.png') no-repeat;
+    background: url('../img/xl/bg.png') no-repeat;
     margin-top: -20px;
     height: 2427px;
+}
+
+/* Large screens */
+@media screen and (max-width: 1024px) {
+    #search-bg {
+        background: url('../img/lg/pattern.png') repeat;
+        background-size: 432px 384px;
+    }
+
+    .news-container {
+        background: url('../img/lg/bg.png') no-repeat;
+        height: 1758px;
+    }
 }

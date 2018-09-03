@@ -3,17 +3,14 @@ import { Container, Row, Col, Button } from 'reactstrap';
 
 import LessonsContainer from '../containers/LessonsContainer';
 import SearchContainer from '../containers/SearchContainer';
+import Image from './Image';
 
-import benefitsImage from '../img/benefits.png';
-import monitorImage from '../img/search-monitor.png';
-import tgPhonesImage from '../img/tg-phones.png';
-import tgScreenshots from '../img/tg-screenshots.png';
-import gmailLogo from '../img/mail.png';
-import tgLogo from '../img/telegram.png';
-import KnucaLegacyLogo from '../img/logo.png';
+import images from '../img';
+
 
 import '../css/App.css';
 import '../css/Grid.css';
+import '../css/media-lg.css';
 
 const App = () => (
   <main id="main">
@@ -30,18 +27,30 @@ const App = () => (
     <section className="news-container">
       <Container>
         <Row className="news-item upper">
-          <Col lg={6} className="upper-left">
-            <img src={benefitsImage} alt="Benefits" />
+          <Col xl={6} lg={7} className="upper-left">
+            <Image
+                xl={images.xl.benefitsImage}
+                lg={images.lg.benefitsImageLg}
+                alt="Benefits"
+            />
           </Col>
-          <Col lg={{ size: 5, offset: 1 }} className="upper-right">
-            <img src={monitorImage} alt="Search monitor" />
+          <Col xl={{ size: 5, offset: 1 }} lg={5} className="upper-right">
+            <Image
+                xl={images.xl.monitorImage}
+                lg={images.lg.monitorImageLg}
+                alt="Search monitor"
+            />
           </Col>
         </Row>
         <Row className="news-item mid">
-          <Col lg={7} className="mid-left">
-            <img src={tgPhonesImage} alt="Telegram bot on phones" />
+          <Col xl={7} lg={7} className="mid-left">
+            <Image
+                xl={images.xl.tgPhonesImage}
+                lg={images.lg.tgPhonesImageLg}
+                alt="Telegram bot on phones"
+            />
           </Col>
-          <Col lg={5} className="mid-right">
+          <Col xl={5} lg={5} className="mid-right">
             <div className="text-block">
               <h2>Легко, швидко і точно</h2>
               <p>Телеграм бот відповість</p>
@@ -60,7 +69,7 @@ const App = () => (
           </Col>
         </Row>
         <Row className="news-item low">
-          <Col lg={6} className="low-left">
+          <Col xl={6} lg={7} className="low-left">
             <div className="text-block">
               <h2>Особливості та переваги</h2>
               <p>Бот дозволяє здійснювати пошук</p>
@@ -69,8 +78,12 @@ const App = () => (
               <p>або діапазон дат</p>
             </div>
           </Col>
-          <Col lg={6} className="low-right">
-            <img src={tgScreenshots} alt="Telegram screenshots" />
+          <Col xl={6} lg={{ size: 5, offset: 0 }} className="low-right">
+            <Image
+                xl={images.xl.tgScreenshots}
+                lg={images.lg.tgScreenshotsLg}
+                alt="Telegram screenshots"
+            />
           </Col>
         </Row>
       </Container>
@@ -80,16 +93,28 @@ const App = () => (
         <Row>
           <Col className="page-footer">
             <div className="footer-credits">
-              <img src={KnucaLegacyLogo} alt="Knuca Legacy logo" />
+              <Image
+                  xl={images.xl.KnucaLegacyLogo}
+                  lg={images.lg.KnucaLegacyLogoLg}
+                  alt="Knuca Legacy logo"
+              />
               <span>&copy; Knuca Legacy 2018, All rights reserved.</span>
             </div>
             <div className="footer-contacts">
               <span>Зв`яжіться з нами</span>
               <a href="knuca-legacy.gmail.com">
-                <img src={gmailLogo} alt="Gmail logo" />
+                <Image
+                    xl={images.xl.gmailLogo}
+                    lg={images.lg.gmailLogoLg}
+                    alt="Gmail logo"
+                />
               </a>
               <a href="https://t.me/KNUCA_ScheduleBot">
-                <img src={tgLogo} alt="Telegram logo" />
+                <Image
+                    xl={images.xl.tgLogo}
+                    lg={images.lg.tgLogoLg}
+                    alt="Knuca Legacy logo"
+                />
               </a>
             </div>
           </Col>

@@ -26,6 +26,7 @@
   line-height: 40px;
   font-size: 40px;
   font-weight: 700;
+  white-space: nowrap;
   margin-bottom: 21px;
 }
 
@@ -78,18 +79,18 @@
   height: 570px;
 }
 
-.news-item .upper-right img {
+.news-item .upper-right picture {
   bottom: 0;
   position: absolute;
 }
 
-.news-item .upper-left img {
+.news-item .upper-left picture {
   top: 90px;
   position: absolute;
   box-shadow: 0 5px 11px 0 rgba(0,0,0,.3), 0 4px 15px 0 rgba(0,0,0,.3);
 }
 
-.news-item .mid-left img {
+.news-item .mid-left picture {
   top: 113px;
   position: absolute;
 }
@@ -108,7 +109,7 @@
   margin-bottom: 8px;
 }
 
-.news-item .low-right img {
+.news-item .low-right picture {
   position: absolute;
   right: 0;
 }
@@ -127,7 +128,7 @@ footer {
   align-items: center;
 }
 
-.footer-credits img {
+.footer-credits picture {
   margin-right: 16px;
 }
 
