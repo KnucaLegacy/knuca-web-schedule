@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactGA from 'react-ga';
 import 'bootstrap/dist/css/bootstrap.css';
 import './css/open-iconic-bootstrap.min.css';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactGA.initialize('UA-112398090-2');
+
+ReactDOM.render(<App />, document.getElementById('root'),
+  () => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  });
 registerServiceWorker();
