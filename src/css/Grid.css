@@ -14,15 +14,3 @@
     height: 2427px;
 }
 
-/* Large screens */
-@media screen and (max-width: 1024px) {
-    #search-bg {
-        background: url('../img/lg/pattern.png') repeat;
-        background-size: 432px 384px;
-    }
-
-    .news-container {
-        background: url('../img/lg/bg.png') no-repeat;
-        height: 1758px;
-    }
-}

@@ -7,9 +7,7 @@ import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactGA.initialize('UA-112398090-2');
+ReactGA.pageview(window.location.pathname);
 
-ReactDOM.render(<App />, document.getElementById('root'),
-  () => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  });
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

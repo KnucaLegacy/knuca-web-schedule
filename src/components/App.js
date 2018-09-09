@@ -11,6 +11,7 @@ import images from '../img';
 import '../css/App.css';
 import '../css/Grid.css';
 import '../css/media-lg.css';
+import '../css/media-md.css';
 
 const App = () => (
   <main id="main">
@@ -27,14 +28,14 @@ const App = () => (
     <section className="news-container">
       <Container>
         <Row className="news-item upper">
-          <Col xl={6} lg={7} className="upper-left">
+          <Col xl={6} lg={7} md={12} className="upper-left">
             <Image
                 xl={images.xl.benefitsImage}
                 lg={images.lg.benefitsImageLg}
                 alt="Benefits"
             />
           </Col>
-          <Col xl={{ size: 5, offset: 1 }} lg={5} className="upper-right">
+          <Col xl={{ size: 5, offset: 1 }} lg={5} md={12} className="upper-right">
             <Image
                 xl={images.xl.monitorImage}
                 lg={images.lg.monitorImageLg}
@@ -43,14 +44,14 @@ const App = () => (
           </Col>
         </Row>
         <Row className="news-item mid">
-          <Col xl={7} lg={7} className="mid-left">
+          <Col xl={7} lg={7} md={{ size: 12 }} className="mid-left">
             <Image
                 xl={images.xl.tgPhonesImage}
                 lg={images.lg.tgPhonesImageLg}
                 alt="Telegram bot on phones"
             />
           </Col>
-          <Col xl={5} lg={5} className="mid-right">
+          <Col xl={5} lg={5} md={{ size: 12 }} className="mid-right">
             <div className="text-block">
               <h2>Легко, швидко і точно</h2>
               <p>Телеграм бот відповість</p>
@@ -69,7 +70,7 @@ const App = () => (
           </Col>
         </Row>
         <Row className="news-item low">
-          <Col xl={6} lg={7} className="low-left">
+          <Col xl={6} lg={7} md={12} className="low-left">
             <div className="text-block">
               <h2>Особливості та переваги</h2>
               <p>Бот дозволяє здійснювати пошук</p>
@@ -78,7 +79,7 @@ const App = () => (
               <p>або діапазон дат</p>
             </div>
           </Col>
-          <Col xl={6} lg={{ size: 5, offset: 0 }} className="low-right">
+          <Col xl={6} lg={{ size: 5, offset: 0 }} md={12} className="low-right">
             <Image
                 xl={images.xl.tgScreenshots}
                 lg={images.lg.tgScreenshotsLg}
