@@ -14,6 +14,8 @@ import tgScreenshotsLg from './lg/tg-screenshots.png';
 import gmailLogoLg from './lg/mail.png';
 import tgLogoLg from './lg/telegram.png';
 import KnucaLegacyLogoLg from './lg/logo.png';
+// MD
+import benefitsImageMd from './md/benefits.png';
 
 const images = {
   xl: {
@@ -33,6 +35,9 @@ const images = {
     gmailLogoLg,
     tgLogoLg,
     KnucaLegacyLogoLg,
+  },
+  md: {
+    benefitsImageMd,
   },
 };
 

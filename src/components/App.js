@@ -32,6 +32,7 @@ const App = () => (
             <Image
                 xl={images.xl.benefitsImage}
                 lg={images.lg.benefitsImageLg}
+                md={images.md.benefitsImageMd}
                 alt="Benefits"
             />
           </Col>
