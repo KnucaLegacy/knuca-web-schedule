@@ -16,6 +16,14 @@ import tgLogoLg from './lg/telegram.png';
 import KnucaLegacyLogoLg from './lg/logo.png';
 // MD
 import benefitsImageMd from './md/benefits.png';
+// SM
+import benefitsImageSm from './sm/benefits.png';
+import monitorImageSm from './sm/search-monitor.png';
+import tgPhonesImageSm from './sm/tg-phones.png';
+import tgScreenshotsSm from './sm/tg-screenshots.png';
+import gmailLogoSm from './sm/mail.png';
+import tgLogoSm from './sm/telegram.png';
+import KnucaLegacyLogoSm from './sm/logo.png';
 
 const images = {
   xl: {
@@ -38,6 +46,15 @@ const images = {
   },
   md: {
     benefitsImageMd,
+  },
+  sm: {
+    benefitsImageSm,
+    monitorImageSm,
+    tgPhonesImageSm,
+    tgScreenshotsSm,
+    gmailLogoSm,
+    tgLogoSm,
+    KnucaLegacyLogoSm,
   },
 };
 
