@@ -14,3 +14,16 @@
     height: 2427px;
 }
 
+@media screen and (max-width: 529px) {
+    .news-container {
+        display: none;
+    }
+
+    .page-footer {
+        justify-content: center;
+    }
+    
+    .footer-contacts {
+        display: none;
+    }
+}
