@@ -2,13 +2,13 @@
 
 This is the online schedule app for the [National University of Construction and Arcitechture](www.knuba.edu.ua).
 
-
-## Installation
+## Contributing
+To suggest a feature, create an issue if it does not already exist.
 
 First of all, clone the repository
 
 ```sh
-git clone https://github.com/MarkShulhin/knuca-web-schedule
+git clone https://github.com/KnucaLegacy/knuca-web-schedule.git
 cd knuca-web-schedule
 ```
 Then, install the dependencies
@@ -22,7 +22,7 @@ or, as alternative
 npm install
 ```
 
-## Running the application
+
 
 In the project directory, you can run:
 
