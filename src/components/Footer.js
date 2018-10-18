@@ -19,7 +19,7 @@ const Footer = () => (
           </div>
           <div className="footer-contacts">
             <span>Зв`яжіться з нами</span>
-            <a href="knuca-legacy.gmail.com">
+            <a href="mailto:mark.shulhin@gmail.com">
               <Image
                   xl={images.xl.gmailLogo}
                   lg={images.lg.gmailLogoLg}
