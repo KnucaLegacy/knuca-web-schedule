@@ -1,5 +1,5 @@
-const apiUrl = process.env.REACT_APP_API_URL || 'localhost/api';
+const apiUrl = process.env.REACT_APP_API_URL || '/api';
 export default {
-  serverApiUrl: `http://${apiUrl}`,
+  serverApiUrl: `${apiUrl}`,
 };
 
