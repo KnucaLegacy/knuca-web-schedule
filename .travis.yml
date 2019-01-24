@@ -11,7 +11,7 @@ script:
   - yarn build
   - tar -cvf ./docker/app.tar build/
   - cd docker
-  - docker build -t knuca-image docker/.
+  - docker build . -t knuca-image
   - docker tag knuca-image $DOCKER_HUB_USERNAME/knuca-web:$TRAVIS_BUILD_NUMBER
   - docker tag knuca-image $DOCKER_HUB_USERNAME/knuca-web:latest
   - docker push $DOCKER_HUB_USERNAME/knuca-web:$TRAVIS_BUILD_NUMBER
